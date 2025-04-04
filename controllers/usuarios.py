@@ -1,4 +1,3 @@
-from db import get_db_connection
 from services.run_sql import run_query
 
 def obtener_usuarios():
