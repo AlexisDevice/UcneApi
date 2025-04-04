@@ -14,6 +14,7 @@ def obtener_usuario(id):
     return {"id": u[0], "nombre": u[1], "email": u[2], "matricula": u[3]}
 
 def login_usuario(email, password):
+    email = email.lower()
     usuario = run_query(f"select * from Usuarios where email = '{email}';", True)
     usuario = usuario[0]
 
@@ -22,5 +23,6 @@ def login_usuario(email, password):
     return False
 
 def sign_usuario(name, email, matricula, password):
+    email = email.lower()
     run_query(f"insert into Usuarios (user_name, matricula, email, user_password) values ('{name}', '{matricula}', '{email}', '{password}');", False)
     return True
